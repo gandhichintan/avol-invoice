@@ -2,6 +2,7 @@
 const electron = require("electron");
 let app = electron.app;
 let BrowserWindow = electron.BrowserWindow;
+let ipcMain = electron.ipcMain;
 // Global reference to the main window, so the garbage collector doesn't close it.
 let mainWindow;
 // Opens the main window, with a native menu bar.
@@ -43,5 +44,9 @@ app.on("activate", () => {
     if (mainWindow === null) {
         createWindow();
     }
+});
+ipcMain.on("test", (event, arg) => {
+    console.log("router is working...from angular js too...!!!");
+    event.sender.send("test-reply", "got response from electron backend");
 });
 //# sourceMappingURL=main.js.map

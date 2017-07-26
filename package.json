@@ -9,8 +9,13 @@
     "clean": "rm -Rf *.log *.js *.map app/*.js app/*.map",
     "tsc:w": "tsc -w",
     "typings": "typings",
-    "postinstall": "typings install"
+    "postinstall": "typings install",
+    "tsc": "tsc"
   },
+  "engines": {
+    "node": "5.9.1"
+  },
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gandhichintan/avol-invoice.git"
@@ -23,32 +28,44 @@
     "hybrid"
   ],
   "author": "Chintan Gandhi",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/gandhichintan/avol-invoice/issues"
   },
   "homepage": "https://github.com/gandhichintan/avol-invoice#readme",
-  "devDependencies": {
-    "@types/core-js": "^0.9.42",
-    "concurrently": "^3.5.0",
-    "electron-packager": "^8.7.2",
-    "typescript": "~2.1.4",
-    "typings": "^2.0.0"
-  },
   "dependencies": {
-    "@angular/common": "^2.4.10",
-    "@angular/compiler": "^2.4.10",
-    "@angular/core": "^2.4.10",
-    "@angular/http": "^2.4.10",
-    "@angular/material": "^2.0.0-alpha.11-3",
-    "@angular/platform-browser": "^2.4.10",
-    "@angular/platform-browser-dynamic": "^2.4.10",
+    "@angular/common": "~2.4.9",
+    "@angular/compiler": "~2.4.9",
+    "@angular/core": "~2.4.9",
+    "@angular/forms": "~2.4.9",
+    "@angular/http": "~2.4.9",
+    "@angular/platform-browser": "~2.4.9",
+    "@angular/platform-browser-dynamic": "~2.4.9",
+    "@angular/router": "~3.4.9",
+    "@angular/upgrade": "~2.4.9",
+    "@types/core-js": "0.9.35",
+    "angular-in-memory-web-api": "0.3.1",
+    "ng-chartist": "1.1.0",
+    "angular2-google-maps": "~0.17.0",
+    "chartist": "~0.9.8",
+    "core-js": "~2.4.1",
+    "jquery": "~3.1.1",
+    "reflect-metadata": "~0.1.8",
+    "rxjs": "5.0.1",
+    "systemjs": "~0.19.41",
+    "zone.js": "^0.7.2",
     "electron": "^1.6.11",
-    "reflect-metadata": "^0.1.10",
-    "rxjs": "^5.0.0-rc.4",
     "sqlite3": "^3.1.8",
-    "systemjs": "^0.19.47",
-    "tssqlite": "^1.0.1",
-    "zone.js": "^0.7.8"
+    "ngx-electron": "^1.0.1"
+  },
+  "devDependencies": {
+    "@types/chartist": "~0.9.33",
+    "@types/core-js": "0.9.35",
+    "@types/jquery": "^2.0.48",
+    "@types/node": "~6.0.45",
+    "concurrently": "~3.0.0",
+    "electron-packager": "^8.7.2",
+    "lite-server": "~2.2.2",
+    "typescript": "~2.0.3",
+    "typings": "^2.1.1"
   }
 }

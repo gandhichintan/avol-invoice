@@ -1,7 +1,28 @@
-import { Component } from '@angular/core';
- 
+import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
+
 @Component({
-  selector: 'my-app',
-  template: '<h1>My First Angular 2 App with Electron</h1>'
+    selector: 'my-app',
+    templateUrl: 'app/app.component.html'
 })
-export class AppComponent { }
+
+export class AppComponent implements OnInit{
+    location: Location;
+    constructor(location:Location) {
+        this.location = location;
+    }
+    ngOnInit(){
+        $.getScript('assets/js/light-bootstrap-dashboard.js');
+    }
+    public isMaps(path){
+        var titlee = this.location.prepareExternalUrl(this.location.path());
+        titlee = titlee.slice( 1 );
+        if(path === titlee){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+}

@@ -7,13 +7,32 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 const core_1 = require("@angular/core");
 const platform_browser_1 = require("@angular/platform-browser");
+const router_1 = require("@angular/router");
+const forms_1 = require("@angular/forms");
 const app_component_1 = require("./app.component");
+const dashboard_component_1 = require("./dashboard/dashboard.component");
+const dashboard_module_1 = require("./dashboard/dashboard.module");
+const sidebar_module_1 = require("./sidebar/sidebar.module");
+const footer_module_1 = require("./shared/footer/footer.module");
+const navbar_module_1 = require("./shared/navbar/navbar.module");
+const common_1 = require("@angular/common");
+const ngx_electron_1 = require("ngx-electron");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule],
-        declarations: [app_component_1.AppComponent],
+        imports: [
+            platform_browser_1.BrowserModule,
+            forms_1.FormsModule,
+            ngx_electron_1.NgxElectronModule,
+            dashboard_module_1.DashboardModule,
+            sidebar_module_1.SidebarModule,
+            navbar_module_1.NavbarModule,
+            footer_module_1.FooterModule,
+            router_1.RouterModule.forRoot([])
+        ],
+        declarations: [app_component_1.AppComponent, dashboard_component_1.DashboardComponent],
+        providers: [{ provide: common_1.LocationStrategy, useClass: common_1.HashLocationStrategy }],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);
