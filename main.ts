@@ -1,4 +1,5 @@
 import electron = require("electron");
+import db = require("../avol-invoice/service/data.service");
 let app = electron.app;
 let BrowserWindow = electron.BrowserWindow;
 
@@ -32,6 +33,12 @@ function createWindow() {
         // when you should delete the corresponding element.
         mainWindow = null;
     });
+
+    //initialize database
+    db.DataContext.dbPath = `${__dirname}/data/avol.db`;
+    var dataContext = new db.DataContext();
+    dataContext.createDbFileIfNotExists();
+    dataContext.createDatabaseIfNotExists();
 }
 
 // Call 'createWindow()' on startup.

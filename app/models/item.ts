@@ -11,4 +11,29 @@ export class Item {
     cgst: number;
     sgst: number;
     total: number;
+
+    constructor(){
+
+    }
+
+    insert = (item: Item) => {
+        var query = `INSERT INTO Invoice
+                    (
+                       name,
+                       packageType,
+                       quantity,
+                       price,
+                       amount,
+                       discount,
+                       amountAferDiscount,
+                       cgst,
+                       sgst,
+                       total 
+                    )
+                    VALUES
+                    (?,?,?,?,?,?,?,?,?,?)`;
+        // new db.DataContext().executeQuery(query, [item.name, item.packageType, item.quantity,
+        // item.price, item.amount, item.discount,
+        // item.amountAfterDiscount, item.cgst, item.sgst, item.total]);
+    }
 }

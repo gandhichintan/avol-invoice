@@ -2,6 +2,7 @@ import { Component, OnInit, trigger, state, style, transition, animate, keyframe
 import notificationService = require('../../../assets/js/notify.js');
 
 import { Item } from "../../models/item";
+import { Invoice } from "../../models/invoice";
 
 
 declare var $: any;
@@ -102,13 +103,14 @@ declare var $: any;
 
 export class InvoiceComponent implements OnInit {
     item: Item;
+    items: Item[];
+    invoice:Invoice;
     constructor() {
         this.item = new Item();
+        this.items = [];
     }
 
     ngOnInit() {
-        // $.getScript('../../../assets/js/bootstrap-checkbox-radio-switch.js');
-        // $.getScript('../../../assets/js/light-bootstrap-dashboard.js');
 
         $('[data-toggle="checkbox"]').each(function () {
             if ($(this).data('toggle') == 'switch') return;

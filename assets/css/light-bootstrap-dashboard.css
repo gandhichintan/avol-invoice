@@ -2006,7 +2006,7 @@ input:focus {
 .card label {
   font-size: 14px;
   font-weight: 400;
-  color: #9A9A9A;
+  color: #333;
   margin-bottom: 0px;
 }
 .card .category i,
