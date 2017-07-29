@@ -64,6 +64,8 @@ export class DataContext {
                     placeOfSupply text,
                     customerName text,
                     customerAddress text,
+                    consigneeName text,
+                    consigneeAddress text,
                     hsnCode integer
                 )`;
 
@@ -109,9 +111,17 @@ export class DataContext {
     }
 
     public executeQuery = (query: any, param: any[]) => {
-        var result = this.db.run(query, param, this.handleError);
-        this.db.close();
-        return result;
+        this.db = new sqlite3.Database(DataContext.dbPath, (err) => {
+            if (err) {
+                console.log(err.message);
+                return;
+            }
+
+            console.log("executing Query : ",query);
+            var result = this.db.run(query, param, this.handleError);
+            return result;
+        });
+
     }
 
     private handleError = (err) => {

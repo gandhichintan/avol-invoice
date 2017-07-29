@@ -1,10 +1,8 @@
 import electron = require("electron");
 import db = require("../avol-invoice/service/data.service");
+import eventListener = require("../avol-invoice/service/angular.connector.service");
 let app = electron.app;
 let BrowserWindow = electron.BrowserWindow;
-
-
-let ipcMain = electron.ipcMain;
 
 // Global reference to the main window, so the garbage collector doesn't close it.
 let mainWindow: Electron.BrowserWindow;
@@ -39,6 +37,9 @@ function createWindow() {
     var dataContext = new db.DataContext();
     dataContext.createDbFileIfNotExists();
     dataContext.createDatabaseIfNotExists();
+
+    //Add db event listener
+    new eventListener.DbListener().addListener();
 }
 
 // Call 'createWindow()' on startup.
@@ -60,10 +61,4 @@ app.on("activate", () => {
     if (mainWindow === null) {
         createWindow();
     }
-});
-
-ipcMain.on("test", (event, arg) => {
-    console.log("router is working...from angular js too...!!!");
-    event.sender.send("test-reply", "got response from electron backend");
-
 });

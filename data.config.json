@@ -1,0 +1,3 @@
+{
+    "getLastInvoiceNumberQuery": "SELECT * FROM Invoice ORDER BY id DESC LIMIT 1;"
+}
